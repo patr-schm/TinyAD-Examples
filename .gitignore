@@ -1,0 +1,8 @@
+.directory
+*.~
+bin
+build
+apps/nonpublic
+CMakeLists.txt.user*
+.idea*
+*.pyc

@@ -1,0 +1,57 @@
+variables:
+  LINUX_GTEST_ROOT: "~/sw/gtest-1.10.0"
+  APPLE_CMAKE: "/opt/local/bin/cmake"
+  APPLE_GTEST_ROOT: "~/sw/gtest-1.7.0/"
+  WINDOWS_EIGEN3_DIR: "e:\\libs\\general\\Eigen3.3.9\\share\\eigen3\\cmake"
+  VS2017_GTEST_ROOT: "e:\\libs\\VS2017\\x64\\gtest-1.7.0"
+  VS2017_GENERATOR: "Visual Studio 15 Win64"
+  VS2019_GTEST_ROOT: "e:\\libs\\VS2019\\x64\\gtest-1.10.0"
+  VS2019_GENERATOR: "Visual Studio 16 2019"
+
+stages:
+  - build
+
+# #####################################
+# Linux Debug
+# #####################################
+
+build-linux-debug:
+  stage: build
+  tags:
+    - Linux
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - echo "On branch $CI_COMMIT_BRANCH!"
+    - mkdir build
+    - cd build
+    - cmake -DTINYAD_UNIT_TESTS=ON -DTINYAD_GEOMETRYCENTRAL=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC" ..
+    - make -j $(nproc)
+  artifacts:
+    paths:
+      - build
+    expire_in: 1 hour
+
+# #####################################
+# Linux Release
+# #####################################
+
+build-linux-release:
+  stage: build
+  tags:
+    - Linux
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - echo "On branch $CI_COMMIT_BRANCH!"
+    - mkdir build
+    - cd build
+    - cmake -DTINYAD_UNIT_TESTS=ON -DTINYAD_GEOMETRYCENTRAL=ON -DCMAKE_BUILD_TYPE=Release ..
+    - make -j $(nproc)
+  artifacts:
+    paths:
+      - build
+    expire_in: 1 hour
+

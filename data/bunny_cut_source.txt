@@ -1,0 +1,4 @@
+bunny_cut.obj is D1_04085.obj from:
+
+Progressive parameterizations.
+Liu, Ligang, Chunyang Ye, Ruiqi Ni, and Xiao-Ming Fu.
