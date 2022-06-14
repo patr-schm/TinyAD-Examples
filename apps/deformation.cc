@@ -1,6 +1,6 @@
 /*
- * (c) 2021 Patrick Schmidt
- *
+ * This file is part of TinyAD and released under the MIT license.
+ * Author: Patrick Schmidt
  * Mesh and constraints are from libigl/tutorial/709_SLIM
  */
 #include <igl/readOBJ.h>

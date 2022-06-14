@@ -1,5 +1,6 @@
 /*
- * (c) 2021 Patrick Schmidt
+ * This file is part of TinyAD and released under the MIT license.
+ * Author: Patrick Schmidt
  */
 #include <igl/readOFF.h>
 #include <igl/local_basis.h>

@@ -1,5 +1,6 @@
 /*
- * (c) 2022 Anton Florey
+ * This file is part of TinyAD and released under the MIT license.
+ * Author: Anton Florey
  */
 #include <TinyAD/Support/OpenMesh.hh>
 #include <TinyAD/ScalarFunction.hh>
