@@ -21,7 +21,7 @@ int main()
     Eigen::Vector3<ADouble> x = ADouble::make_active({0.0, -1.0, 1.0});
 
     // Init a vector of passive variables
-    Eigen::Vector3<double> y(2.0, 3.0, 5.0);
+    Eigen::Vector3<double> y = {2.0, 3.0, 5.0};
 
     // Compute angle between the two vectors
     ADouble angle = acos(x.dot(y) / (x.norm() * y.norm()));
