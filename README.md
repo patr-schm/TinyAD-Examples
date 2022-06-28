@@ -10,7 +10,7 @@ The TinyAD examples have been tested on Linux and require:
 
 Build the examples via:
 ```
-git clone --recursive https://gitlab.vci.rwth-aachen.de:9000/pschmidt/TinyAD-Examples.git
+git clone --recursive https://github.com/patr-schm/TinyAD-Examples.git
 cd TinyAD-Examples
 mkdir build
 cd build
