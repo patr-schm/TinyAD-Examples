@@ -1,0 +1,3 @@
+Title: TinyAD: Automatic Differentiation in Geometry Processing Made Simple
+Authors: Patrick Schmidt, Janis Born, David Bommes, Marcel Campen, Leif Kobbelt
+Operating System: Linux (e.g. Ubuntu or Debian)
