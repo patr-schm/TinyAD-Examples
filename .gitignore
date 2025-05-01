@@ -6,3 +6,4 @@ apps/nonpublic
 CMakeLists.txt.user*
 .idea*
 *.pyc
+.vscode
