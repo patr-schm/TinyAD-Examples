@@ -11,7 +11,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install libx11-dev libglfw3-dev libglfw3 libeigen3-dev libgl1-mesa-dev mesa-utils libxinerama
+          sudo apt-get install libx11-dev libglfw3-dev libglfw3 libeigen3-dev libgl1-mesa-dev mesa-utils libxinerama-dev
       - name: Check out TinyAD-Examples
         uses: actions/checkout@v3
         with:
