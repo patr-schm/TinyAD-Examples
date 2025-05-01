@@ -2,6 +2,10 @@
 
 This repository contains **code examples** for **automatic differentiation with TinyAD**. Please see the [**README in the main TinyAD repository**](https://github.com/patr-schm/TinyAD) for an overview.
 
+Note that this repository comes with a massive amount of dependencies as submodules. However, [TinyAD](https://github.com/patr-schm/TinyAD) itself is a lightweight header-only library that only depends on Eigen and has been tested on Linux, Windows, and Mac.
+
+## Linux
+
 These examples have been tested on Linux and require:
 * A C++17 compiler
 * CMake >= 3.9 (e.g. `sudo apt-get install cmake`)
@@ -18,4 +22,5 @@ cmake ..
 make 
 ```
 
-Note that this repository comes with quite a few dependencies as submodules. However, [TinyAD](https://github.com/patr-schm/TinyAD) itself is a lightweight header-only library that only depends on Eigen and has been tested on Linux, Windows, and Mac.
+## Windows
+The branch `windows` compiled successfully with MSVC in 2025.
