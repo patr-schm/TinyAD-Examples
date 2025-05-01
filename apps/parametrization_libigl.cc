@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Patrick Schmidt
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <igl/readOBJ.h>
 
 #include <TinyAD/ScalarFunction.hh>
@@ -22,7 +24,7 @@ int main()
     // Read mesh and compute Tutte embedding
     Eigen::MatrixXd V; // #V-by-3 3D vertex positions
     Eigen::MatrixXi F; // #F-by-3 indices into V
-    igl::readOBJ(DATA_PATH / "armadillo_cut_low.obj", V, F);
+    igl::readOBJ((DATA_PATH / "armadillo_cut_low.obj").string(), V, F);
     Eigen::MatrixXd P = tutte_embedding(V, F); // #V-by-2 2D vertex positions
 
     // Pre-compute triangle rest shapes in local coordinate systems

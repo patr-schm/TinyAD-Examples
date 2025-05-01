@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Patrick Schmidt
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <polymesh/Mesh.hh>
 #include <polymesh/formats.hh>
 #include <typed-geometry/tg-lean.hh>
@@ -29,7 +31,7 @@ int main()
     // Read disk-topology mesh and compute Tutte embedding
     pm::Mesh m;
     auto pos = m.vertices().make_attribute<Eigen::Vector3d>();
-    pm::load(DATA_PATH / "armadillo_cut_low.obj", m, pos);
+    pm::load((DATA_PATH / "armadillo_cut_low.obj").string(), m, pos);
     auto param = tutte_embedding(pos);
 
     glow_view_mesh(pos, true, "Input Mesh"); // Add input mesh to viewer gird

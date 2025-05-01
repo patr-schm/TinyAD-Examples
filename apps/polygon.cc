@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Patrick Schmidt
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <TinyAD/Scalar.hh>
 #include <TinyAD/Utils/Helpers.hh>
 #include <TinyAD/Utils/LineSearch.hh>

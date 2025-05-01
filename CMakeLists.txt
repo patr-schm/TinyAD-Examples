@@ -11,6 +11,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+# Build even though old submodules use
+# cmake_minimum_required(..) lower than 3.5, which is now forbidden.
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+
 # Add -fPIC flag (required to build predicates.c)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
@@ -32,6 +36,9 @@ option(TINYAD_UNIT_TESTS "" ON)
 # Enable optional dependencies
 option(TINYAD_GEOMETRYCENTRAL "Build Geometry Central examples" ON)
 
+# Force consistent runtime library for all targets
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+
 # ===============================================
 # Find packages
 
@@ -51,6 +58,9 @@ message("Building TinyAD-Examples in " ${CMAKE_BUILD_TYPE} " mode")
 
 # ===============================================
 # Add submodules
+
+# Set runtime library for Google Test before adding it
+set(gtest_force_shared_crt ON CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib" FORCE)
 
 add_subdirectory(libs/eigen-lean)
 add_subdirectory(libs/googletest)
@@ -98,7 +108,6 @@ target_link_libraries(TinyAD-Examples PUBLIC
     glow
     imgui
     glow-extras
-    stdc++fs
     TinyAD
 )
 if (TARGET OpenMP::OpenMP_CXX)

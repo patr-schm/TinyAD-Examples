@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Anton Florey
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <TinyAD/Support/OpenMesh.hh>
 #include <TinyAD/ScalarFunction.hh>
 #include <TinyAD/Utils/LineSearch.hh>
@@ -137,7 +139,7 @@ int main()
 
     // Read a mesh
     OpenMesh::PolyMesh mesh;
-    OpenMesh::IO::read_mesh(mesh, DATA_PATH / "bunny.obj");
+    OpenMesh::IO::read_mesh(mesh, (DATA_PATH / "bunny.obj").string());
 
     // Scale the mesh's bounding box to unit volume
     normalize_mesh(mesh);

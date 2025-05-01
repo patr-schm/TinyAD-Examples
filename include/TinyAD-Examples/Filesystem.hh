@@ -5,20 +5,20 @@
 #pragma once
 
 #include <TinyAD/Utils/Out.hh>
-#include <experimental/filesystem>
+#include <filesystem>
 #include <fstream>
 #include <iomanip>
 
-namespace fs = std::experimental::filesystem;
+namespace fs = std::filesystem;
 
 inline fs::path SOURCE_PATH = fs::path(SOURCE_PATH_STR);
 inline fs::path DATA_PATH = fs::path(DATA_PATH_STR);
 inline fs::path OUTPUT_PATH = fs::path(OUTPUT_PATH_STR);
 
 inline void make_file_directory(
-        const std::string& _file_path)
+        const fs::path& _file_path)
 {
-    fs::create_directories(fs::path(_file_path).parent_path());
+    fs::create_directories(_file_path.parent_path());
 }
 
 inline void append_to_file(

@@ -147,7 +147,7 @@ inline gv::detail::raii_view_closer glow_view_sphere_embedding(
     { // Show sphere
         Eigen::MatrixXd V;
         Eigen::MatrixXi F;
-        igl::readOBJ(DATA_PATH / "sphere.obj", V, F);
+        igl::readOBJ((DATA_PATH / "sphere.obj").string(), V, F);
         glow_view_mesh(V, F, false, "", glow_default_wireframe_color, glow_default_wireframe_width_px, _mesh_color);
     }
 

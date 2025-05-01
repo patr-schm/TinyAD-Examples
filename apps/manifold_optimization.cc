@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Patrick Schmidt
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <igl/readOBJ.h>
 
 #include <TinyAD/ScalarFunction.hh>
@@ -62,8 +64,8 @@ void manifold_optimization(
     Eigen::MatrixX3i F; // #F-by-3 indices into V
     Eigen::MatrixX3d S; // #V-by-3 3D vertex positions on sphere
     Eigen::MatrixX3i F2; // #F-by-3 indices into V
-    igl::readOBJ(DATA_PATH / "giraffe_refined.obj", V, F);
-    igl::readOBJ(DATA_PATH / "giraffe_embedding.obj", S, F2);
+    igl::readOBJ((DATA_PATH / "giraffe_refined.obj").string(), V, F);
+    igl::readOBJ((DATA_PATH / "giraffe_embedding.obj").string(), S, F2);
     TINYAD_ASSERT_EQ(F.rows(), F2.rows());
 
     // Set up orthonormal tangent space basis at each vertex on sphere.

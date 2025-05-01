@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Patrick Schmidt
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <TinyAD/Support/OpenMesh.hh>
 #include <TinyAD/ScalarFunction.hh>
 #include <TinyAD/Utils/NewtonDirection.hh>
@@ -25,7 +27,7 @@ int main()
 
     // Read disk-topology mesh as OpenMesh and compute Tutte embedding
     OpenMesh::TriMesh mesh;
-    OpenMesh::IO::read_mesh(mesh, DATA_PATH / "armadillo_cut_low.obj");
+    OpenMesh::IO::read_mesh(mesh, (DATA_PATH / "armadillo_cut_low.obj").string());
     auto ph_param = tutte_embedding(mesh);
 
     glow_view_mesh(mesh, true, "Input Mesh"); // Add input mesh to viewer gird

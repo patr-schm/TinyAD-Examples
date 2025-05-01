@@ -2,6 +2,8 @@
  * This file is part of TinyAD and released under the MIT license.
  * Author: Patrick Schmidt
  */
+#define _USE_MATH_DEFINES // Required for M_PI on Windows
+
 #include <geometrycentral/surface/meshio.h>
 #include <geometrycentral/surface/manifold_surface_mesh.h>
 #include <geometrycentral/surface/vertex_position_geometry.h>
@@ -33,7 +35,7 @@ int main()
     // Read mesh and compute Tutte embedding
     std::unique_ptr<ManifoldSurfaceMesh> mesh;
     std::unique_ptr<VertexPositionGeometry> geometry;
-    std::tie(mesh, geometry) = readManifoldSurfaceMesh(DATA_PATH / "armadillo_cut_low.obj");
+    std::tie(mesh, geometry) = readManifoldSurfaceMesh((DATA_PATH / "armadillo_cut_low.obj").string());
     VertexData<Vector2> param = tutte_embedding(*mesh, *geometry);
 
     // Add mesh and initial param to viewer
