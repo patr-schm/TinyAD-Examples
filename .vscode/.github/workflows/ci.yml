@@ -1,0 +1,27 @@
+name: CI
+on: [push]
+jobs:
+  Ubuntu:
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [Release, Debug]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libeigen3-dev
+      - name: Check out TinyAD-Examples
+        uses: actions/checkout@v3
+      - name: Configure
+        run: cmake -B ${{ github.workspace }}/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -DTINYAD_UNIT_TESTS=ON .
+      - name: Build
+        run: cmake --build ${{ github.workspace }}/build --config ${{ matrix.build_type }} --parallel $(nproc)
+      - name: Run Tests
+        run: ${{ github.workspace }}/build/TinyAD-Tests --gtest_output="xml:test-report.xml"
+      - name: Create Test Report
+        if: always()
+        uses: test-summary/action@v2
+        with:
+          paths: test-report.xml
