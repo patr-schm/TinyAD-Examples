@@ -1,8 +1,8 @@
 # TinyAD-Examples
 
-This repository contains **code examples** for **automatic differentiation with TinyAD**. Please see the [**README in the main TinyAD repository**](https://github.com/patr-schm/TinyAD) for an overview.
+This repository provides **examples** for automatic differentiation using **TinyAD**. For an overview, visit the [**main TinyAD repository**](https://github.com/patr-schm/TinyAD).
 
-Note that this repository comes with a massive amount of dependencies as submodules. However, [TinyAD](https://github.com/patr-schm/TinyAD) itself is a lightweight header-only library that only depends on Eigen and has been tested on Linux, Windows, and Mac.
+While this repository includes many dependencies as submodules, [TinyAD](https://github.com/patr-schm/TinyAD) itself is a lightweight, header-only library requiring only Eigen. It has been tested on Linux, Windows, and Mac.
 
 ## Linux
 
