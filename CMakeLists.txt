@@ -10,7 +10,6 @@ project(TinyAD-Examples)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-add_compile_options(-include cstdint)
 
 # Build even though old submodules use
 # cmake_minimum_required(..) lower than 3.5, which is now forbidden.
