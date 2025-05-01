@@ -10,7 +10,6 @@ project(TinyAD-Examples)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-add_compile_options(-include cstdint)
 
 # Add -fPIC flag (required to build predicates.c)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
