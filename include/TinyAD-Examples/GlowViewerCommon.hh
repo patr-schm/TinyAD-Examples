@@ -7,6 +7,7 @@
 #include <TinyAD/Utils/Out.hh>
 #include <TinyAD-Examples/Filesystem.hh>
 
+#include <cstdint>
 #include <Eigen/Core>
 #include <typed-geometry/tg-lean.hh>
 #include <glow-extras/viewer/view.hh>
